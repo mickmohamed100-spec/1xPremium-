@@ -8,6 +8,25 @@ function redirectTo(page) {
     window.location.href = page;
 }
 
+// Fonction de validation de connexion
+function validateLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    // Vérification de l'ID (test avec "SOUMAH LAMINE")
+    if (username.toUpperCase() === 'SOUMAH LAMINE' && password) {
+        // Stocker l'ID dans le localStorage
+        localStorage.setItem('userName', username);
+        localStorage.setItem('userId', '123456');
+        
+        // Redirection vers le tableau de bord
+        redirectTo('dashboard.html');
+    } else {
+        // Afficher le popup d'erreur
+        document.getElementById('errorPopup').classList.remove('hidden');
+    }
+}
+
 // Page d'avertissement
 function acceptWarning() {
     redirectTo('login.html');
@@ -18,31 +37,79 @@ function refuseWarning() {
     window.close();
 }
 
-// Page de connexion
-document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            // Vérification de l'ID (test avec "SOUMAH LAMINE")
-            if (username.toUpperCase() === 'SOUMAH LAMINE' && password) {
-                // Stocker l'ID dans le localStorage
-                localStorage.setItem('userName', username);
-                localStorage.setItem('userId', '123456'); // ID simulé
-                
-                // Redirection vers le tableau de bord
-                redirectTo('dashboard.html');
-            } else {
-                // Afficher le popup d'erreur
-                document.getElementById('errorPopup').classList.remove('hidden');
-            }
-        });
+// Fermer le popup d'erreur de connexion
+function closeErrorPopup() {
+    document.getElementById('errorPopup').classList.add('hidden');
+}
+
+// Tableau de bord - Navigation
+function showHistory() {
+    document.getElementById('historySection').classList.remove('hidden');
+}
+
+function hideHistory() {
+    document.getElementById('historySection').classList.add('hidden');
+}
+
+function goToCashvip() {
+    redirectTo('cashvip.html');
+}
+
+function showActivationForm() {
+    redirectTo('activation-form.html');
+}
+
+// Page CASHVIP
+function showTerms() {
+    document.getElementById('termsPopup').classList.remove('hidden');
+}
+
+function closeTerms() {
+    document.getElementById('termsPopup').classList.add('hidden');
+}
+
+function selectLevel(levelName, amount) {
+    // Rediriger vers la page de dépôt avec les paramètres
+    redirectTo(`deposit-form.html?level=${encodeURIComponent(levelName)}&amount=${amount}`);
+}
+
+// Formulaire d'activation - Accepter l'intégration du serveur
+function acceptServerIntegration() {
+    redirectTo('cashvip.html');
+}
+
+// Formulaire de dépôt - Mise à jour de la conversion
+function updateConversion(usdtAmount) {
+    const rate = 8684.41; // 1 USDT = 8684.41 GNF
+    const gnfAmount = (usdtAmount * rate).toFixed(2);
+    if (document.getElementById('conversion')) {
+        document.getElementById('conversion').textContent = `${usdtAmount} USDT = ${gnfAmount} GNF`;
     }
+}
+
+// Flux C - Popups de confirmation de paiement
+function triggerPaymentFlow() {
+    // Afficher le premier popup
+    const popup1 = document.getElementById('paymentPopup1');
+    popup1.classList.remove('hidden');
     
+    // Fermer automatiquement après 10 secondes (pour test)
+    setTimeout(function() {
+        popup1.classList.add('hidden');
+        
+        // Afficher le deuxième popup
+        const popup2 = document.getElementById('paymentPopup2');
+        popup2.classList.remove('hidden');
+        
+        // Fermer automatiquement après 5 secondes
+        setTimeout(function() {
+            popup2.classList.add('hidden');
+        }, 5000);
+    }, 10000); // 10 secondes pour les tests
+}
+
+// Au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
     // Afficher le nom d'utilisateur sur le tableau de bord
     const userNameElement = document.getElementById('userName');
     if (userNameElement) {
@@ -110,79 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
             triggerPaymentFlow();
         });
     }
-});
-
-// Fermer le popup d'erreur de connexion
-function closeErrorPopup() {
-    document.getElementById('errorPopup').classList.add('hidden');
-}
-
-// Tableau de bord - Navigation
-function showHistory() {
-    document.getElementById('historySection').classList.remove('hidden');
-}
-
-function hideHistory() {
-    document.getElementById('historySection').classList.add('hidden');
-}
-
-function goToCashvip() {
-    redirectTo('cashvip.html');
-}
-
-function showActivationForm() {
-    redirectTo('activation-form.html');
-}
-
-// Page CASHVIP
-function showTerms() {
-    document.getElementById('termsPopup').classList.remove('hidden');
-}
-
-function closeTerms() {
-    document.getElementById('termsPopup').classList.add('hidden');
-}
-
-function selectLevel(levelName, amount) {
-    // Rediriger vers la page de dépôt avec les paramètres
-    redirectTo(`deposit-form.html?level=${encodeURIComponent(levelName)}&amount=${amount}`);
-}
-
-// Formulaire d'activation - Accepter l'intégration du serveur
-function acceptServerIntegration() {
-    redirectTo('cashvip.html');
-}
-
-// Formulaire de dépôt - Mise à jour de la conversion
-function updateConversion(usdtAmount) {
-    const rate = 8684.41; // 1 USDT = 8684.41 GNF
-    const gnfAmount = (usdtAmount * rate).toFixed(2);
-    document.getElementById('conversion').textContent = `${usdtAmount} USDT = ${gnfAmount} GNF`;
-}
-
-// Flux C - Popups de confirmation de paiement
-function triggerPaymentFlow() {
-    // Afficher le premier popup
-    const popup1 = document.getElementById('paymentPopup1');
-    popup1.classList.remove('hidden');
     
-    // Fermer automatiquement après 2 minutes (120000 ms)
-    setTimeout(function() {
-        popup1.classList.add('hidden');
-        
-        // Afficher le deuxième popup
-        const popup2 = document.getElementById('paymentPopup2');
-        popup2.classList.remove('hidden');
-        
-        // Fermer automatiquement après 5 secondes (pour la démonstration)
-        setTimeout(function() {
-            popup2.classList.add('hidden');
-        }, 5000);
-    }, 120000); // 2 minutes en millisecondes
-}
-
-// Simulation de graphique crypto (effet visuel)
-document.addEventListener('DOMContentLoaded', function() {
+    // Simulation de graphique crypto (effet visuel)
     const chart = document.getElementById('cryptoChart');
     if (chart) {
         // Créer un effet de graphique animé avec des barres
