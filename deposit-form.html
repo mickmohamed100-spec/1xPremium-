@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dépôt d'Activation - 1XPREMIUM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="form-page">
+    <div class="container">
+        <div class="form-container">
+            <h2>Formulaire de Dépôt</h2>
+            
+            <form id="depositForm">
+                <div class="form-group">
+                    <label for="depositPhone">Numéro de téléphone</label>
+                    <input type="tel" id="depositPhone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Pays</label>
+                    <select id="country" name="country" required>
+                        <option value="">Sélectionnez votre pays</option>
+                        <option value="Guinée Conakry">Guinée Conakry</option>
+                        <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                        <option value="Sénégal">Sénégal</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Bénin">Bénin</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Cameroun">Cameroun</option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Congo">Congo</option>
+                        <option value="RDC">République Démocratique du Congo</option>
+                        <option value="Maroc">Maroc</option>
+                        <option value="Tunisie">Tunisie</option>
+                        <option value="Algérie">Algérie</option>
+                        <option value="Égypte">Égypte</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Tanzanie">Tanzanie</option>
+                        <option value="Ouganda">Ouganda</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Afrique du Sud">Afrique du Sud</option>
+                        <option value="Angola">Angola</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="selectedLevel">Niveau choisi</label>
+                    <input type="text" id="selectedLevel" name="level" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="amount">Montant</label>
+                    <input type="text" id="amount" name="amount" readonly>
+                </div>
+                
+                <div class="conversion-display">
+                    <span id="conversion">0 USDT = 0 GNF</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Choix du réseau</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="network" value="Orange Money" required>
+                            <span class="radio-label">Orange Money</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="network" value="MTN Money" required>
+                            <span class="radio-label">MTN Money</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-submit">Confirmer le paiement</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Popup 1: Confirmation de paiement -->
+    <div id="paymentPopup1" class="popup hidden">
+        <div class="popup-content liquid-glass white-bg">
+            <div class="popup-body">
+                <p>Veuillez prendre votre téléphone et confirmer le paiement.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Popup 2: Attente des résultats -->
+    <div id="paymentPopup2" class="popup hidden">
+        <div class="popup-content liquid-glass">
+            <div class="popup-body">
+                <p>Veuillez patienter pour recevoir les résultats dans votre Gmail.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

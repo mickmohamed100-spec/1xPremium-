@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - 1XPREMIUM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    <div class="container">
+        <div class="login-form">
+            <h1 class="logo-title">
+                <span class="part1">1X</span><span class="part2">BET</span> migré 
+                <span class="part3">1X</span><span class="part4">PREMIUM</span>
+            </h1>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">ID ou Gmail</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-login">Se connecter</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="errorPopup" class="popup hidden">
+        <div class="popup-content liquid-glass">
+            <div class="popup-header">
+                <h3>Erreur de connexion</h3>
+            </div>
+            <div class="popup-body">
+                <p>Mot de passe ou ID incorrect</p>
+            </div>
+            <div class="popup-footer">
+                <button class="btn btn-close" onclick="closeErrorPopup()">Fermer</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

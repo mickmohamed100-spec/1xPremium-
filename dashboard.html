@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - 1XPREMIUM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <header class="dashboard-header">
+        <div class="header-left">
+            <div class="logo">1X<span>PREMIUM</span></div>
+        </div>
+        
+        <div class="header-center">
+            <nav class="nav-menu">
+                <button class="nav-btn" onclick="showHistory()">Historique</button>
+                <button class="nav-btn" onclick="goToCashvip()">CASHVIP</button>
+                <button class="nav-btn">Retrait</button>
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='15' r='10' fill='%233498db'/%3E%3Ccircle cx='20' cy='50' r='25' fill='%233498db'/%3E%3C/svg%3E" alt="Photo de profil">
+                </div>
+                <div class="user-details">
+                    <div class="user-name" id="userName">SOUMAH LAMINE</div>
+                    <div class="user-id" id="userId">ID: 123456</div>
+                </div>
+            </div>
+            
+            <div class="balance">
+                <div class="balance-label">Solde</div>
+                <div class="balance-amount">70 USDT</div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="dashboard-main">
+        <div class="dashboard-grid">
+            <div class="card chart-card liquid-glass">
+                <h3>Évolution Crypto</h3>
+                <div class="chart-container">
+                    <div class="chart" id="cryptoChart">
+                        <!-- Graphique simulé avec CSS/JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card info-card">
+                <h3>Informations techniques</h3>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-label">Logiciels appliqués:</span>
+                        <span class="info-value">GNSI version actuelle</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">API:</span>
+                        <span class="info-value">7rlahlz8aj</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card action-card">
+                <button class="btn btn-activate" onclick="showActivationForm()">Activer le compte</button>
+            </div>
+        </div>
+        
+        <div id="historySection" class="history-section hidden">
+            <div class="card history-card">
+                <h3>Historique des transactions</h3>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-amount">70 USDT</div>
+                        <div class="history-date">effectuées à 23:48 le 20.10.2025</div>
+                    </div>
+                </div>
+                <button class="btn btn-back" onclick="hideHistory()">Retour au tableau de bord</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASHVIP - 1XPREMIUM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cashvip-page">
+    <div class="container">
+        <header class="cashvip-header">
+            <h1>Cashback VIP Casino</h1>
+            <p>Profitez de notre système de cashback à 8 niveaux pour maximiser vos gains</p>
+        </header>
+        
+        <section class="current-status">
+            <h2>Statut Actuel</h2>
+            <div class="status-card">
+                <div class="status-info">
+                    <div class="status-level">
+                        <span class="level-label">Niveau:</span>
+                        <span class="level-name">Cuivre</span>
+                    </div>
+                    <div class="status-cashback">
+                        <span class="cashback-label">Cashback:</span>
+                        <span class="cashback-value">5%</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-circle">
+                        <div class="progress-text">Expérience 0</div>
+                    </div>
+                </div>
+                
+                <div class="gems-container">
+                    <div class="gem active">●</div>
+                    <div class="gem">●</div>
+                    <div class="gem">●</div>
+                    <div class="gem">●</div>
+                    <div class="gem">●</div>
+                    <div class="gem">●</div>
+                    <div class="gem">●</div>
+                    <div class="gem">●</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cashback-management">
+            <h2>Gestion du Cashback</h2>
+            <div class="management-card">
+                <div class="principal-amount">
+                    <span>Principal: 0</span>
+                </div>
+                
+                <div class="management-buttons">
+                    <button class="btn btn-calculate">CALCULER...</button>
+                    <button class="btn btn-withdraw">RETIRER</button>
+                </div>
+                
+                <div class="terms-link">
+                    <a href="#" onclick="showTerms()">Conditions générales</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="levels-table">
+            <h2>Tableau des Niveaux</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Niveau</th>
+                            <th>Points requis</th>
+                            <th>Taux de cashback</th>
+                            <th>Cashback max</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="selectLevel('Cuivre', 0)">
+                            <td>Cuivre</td>
+                            <td>0</td>
+                            <td>5%</td>
+                            <td>50 USDT</td>
+                        </tr>
+                        <tr onclick="selectLevel('Bronze', 531)">
+                            <td>Bronze</td>
+                            <td>100</td>
+                            <td>10%</td>
+                            <td>100 USDT</td>
+                        </tr>
+                        <tr onclick="selectLevel('Argent', 670)">
+                            <td>Argent</td>
+                            <td>500</td>
+                            <td>15%</td>
+                            <td>200 USDT</td>
+                        </tr>
+                        <tr onclick="selectLevel('Or', 721)">
+                            <td>Or</td>
+                            <td>1000</td>
+                            <td>20%</td>
+                            <td>500 USDT</td>
+                        </tr>
+                        <tr onclick="selectLevel('Rubis', 843)">
+                            <td>Rubis</td>
+                            <td>2500</td>
+                            <td>25%</td>
+                            <td>1000 USDT</td>
+                        </tr>
+                        <tr onclick="selectLevel('Saphir', 955)">
+                            <td>Saphir</td>
+                            <td>5000</td>
+                            <td>30%</td>
+                            <td>2000 USDT</td>
+                        </tr>
+                        <tr onclick="selectLevel('Diamant', 1020)">
+                            <td>Diamant</td>
+                            <td>10000</td>
+                            <td>35%</td>
+                            <td>5000 USDT</td>
+                        </tr>
+                        <tr onclick="selectLevel('Statut VIP', 0)">
+                            <td>Statut VIP</td>
+                            <td>25000</td>
+                            <td>50%</td>
+                            <td>10000 USDT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <footer class="cashvip-footer">
+            <p><em>Le cashback est calculé sur la base des pertes nettes de la semaine précédente. Le montant est crédité chaque lundi à 00:00 GMT.</em></p>
+        </footer>
+    </div>
+    
+    <!-- Popup Conditions générales -->
+    <div id="termsPopup" class="popup hidden">
+        <div class="popup-content liquid-glass scrollable">
+            <div class="popup-header">
+                <h3>Conditions générales</h3>
+                <button class="close-btn" onclick="closeTerms()">×</button>
+            </div>
+            <div class="popup-body">
+                <div class="terms-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <!-- Plus de contenu pour rendre le popup défilable -->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nunc nisl aliquam nisl, eget ultricies nisl nisl eget nisl.</p>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button class="btn btn-close" onclick="closeTerms()">Fermer</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
